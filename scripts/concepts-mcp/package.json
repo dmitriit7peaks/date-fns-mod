@@ -1,0 +1,19 @@
+{
+  "name": "concepts-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Semantic + keyword concept search over docs/concepts, exposed as an MCP server. POC ported onto date-fns.",
+  "bin": {
+    "concepts": "cli.mjs"
+  },
+  "scripts": {
+    "index": "node cli.mjs index --docs ../../docs/concepts --index ../../docs/concepts/.index.json",
+    "search": "node cli.mjs search",
+    "mcp": "node server.mjs"
+  },
+  "dependencies": {
+    "@xenova/transformers": "^2.17.2",
+    "docx": "^8.5.0"
+  }
+}

@@ -4,6 +4,10 @@
       "command": "pnpm",
       "args": ["date-fns-mcp"],
       "env": {}
+    },
+    "concepts": {
+      "command": "node",
+      "args": ["scripts/concepts-mcp/server.mjs"]
     }
   }
 }

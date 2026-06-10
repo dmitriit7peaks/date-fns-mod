@@ -1,0 +1,2 @@
+# Regenerable embedding index — rebuild with: scripts/concepts-mcp npm run index
+.index.json
