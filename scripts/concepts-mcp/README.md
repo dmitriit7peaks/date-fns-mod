@@ -29,6 +29,28 @@ this way**, and the constraints. Template: `docs/concepts/_TEMPLATE.md`.
 - **format / parse tokens** — `format-token-footguns.md`, `parse-vs-parseiso.md`, `format-has-no-timezone.md`
 - **date arithmetic** — `month-arithmetic-overflow.md`, `dst-local-time.md`, `difference-calendar-vs-exact.md`
 
+## Scope — what you can ask (and where it's hardcoded)
+
+This POC only covers the two domains above. Example questions that land well:
+
+- "why does `addMonths(Jan 31, 1)` return Feb 28 and not Mar 3? is it reversible?"
+- "why does `format('YYYY-MM-DD')` print `2018-10-283`?"
+- "`addHours(d, 24)` vs `addDays(d, 1)` around daylight saving — why differ?"
+- "`parse()` returns Invalid Date and wants a third argument — when do I use `parseISO`?"
+- "same code shows a different time on the server than on my laptop"
+
+Anything outside these two domains returns low-cosine results — by design (see
+the counter-example in the article).
+
+> ⚠️ **The scope is hardcoded in two places, not inferred from the docs.** An
+> agent decides whether to call this server from the **`search` tool description
+> in `server.mjs`**, and is nudged to do so by **`CLAUDE.md`** at the repo root —
+> both of which name the domains explicitly. If you add concept docs in a *new*
+> domain, indexing alone is not enough: update the `search` description in
+> `server.mjs` and the domain list in `CLAUDE.md`, or agents won't route
+> questions to it. (That mismatch is exactly why the server was skipped at first:
+> its description still named the original project's domains.)
+
 ## Usage
 
 ```sh
